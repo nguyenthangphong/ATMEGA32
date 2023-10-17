@@ -5,13 +5,14 @@
 #include "micro_config.h"
 #include "common_macros.h"
 
-#define START 0x08
-#define MT_SLA_W_ACK 0x18
-#define MR_SLA_R_ACK 0x40
-#define MR_DATA_ACK 0x50
-#define MR_DATA_NACK 0x58
-#define SR_OWN_SLA_W 0x60
-#define MT_DATA_ACK 0x28
+#define START 			0x08
+#define REP_START 		0x10
+#define MT_SLA_W_ACK 	0x18
+#define MR_SLA_R_ACK 	0x40
+#define MR_DATA_ACK 	0x50
+#define MR_DATA_NACK 	0x58
+#define SR_OWN_SLA_W 	0x60
+#define MT_DATA_ACK 	0x28
 
 typedef enum { NACK, ACK } I2C_ACKorNACK;
 typedef enum { WRITE, READ } I2C_RW;
