@@ -78,7 +78,7 @@ unsigned char I2C_MTR_Seq(unsigned char * data, unsigned char SLA, I2C_RW R_W){
 		break;
 	}
 
-	/* Send or get the data on the bus */
+	/* Read - Write the data on the bus */
 	switch(R_W){
 	case READ:
 		*data = TWDR;
@@ -115,8 +115,8 @@ unsigned char I2C_MTR_Seq(unsigned char * data, unsigned char SLA, I2C_RW R_W){
 		break;
 	}
 
-	/*stop bit*/
-	TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
+	/* Stop bit */
+	TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO);
 
 	return 0;
 }
