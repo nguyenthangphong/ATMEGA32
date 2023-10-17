@@ -6,24 +6,28 @@ OBJCOPY = avr-objcopy
 SIZE = avr-size
 BUILD_DIR = build
 
-ROOM_SOURCES = \
-    DHT11.c
+# Define the source files
+SOURCES = \
+    MCAL/DIO/DIO.c \
+	MCAL/I2C/I2C.c \
+	MCAL/UART/UART.c
 
-ROOM_OBJECTS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(ROOM_SOURCES))
+# Generate object file names
+OBJECTS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(SOURCES))
 
-compile: create_build_dir $(ROOM_OBJECTS)
-	$(COMPILE) -o $(PROJECTNAME).elf $(ROOM_OBJECTS)
+compile: create_build_dir $(OBJECTS)
+	$(COMPILE) -o $(PROJECTNAME).elf $(OBJECTS)
 	$(OBJCOPY) -O ihex $(PROJECTNAME).elf $(PROJECTNAME).hex
 	$(SIZE) --format=avr --mcu=$(MCU) $(PROJECTNAME).elf
-	mv $(PROJECTNAME).hex $(BUILD_DIR)/Room/$(PROJECTNAME).hex
-	mv $(PROJECTNAME).elf $(BUILD_DIR)/Room/$(PROJECTNAME).elf
+	mv $(PROJECTNAME).hex $(BUILD_DIR)/$(PROJECTNAME)/$(PROJECTNAME).hex
+	mv $(PROJECTNAME).elf $(BUILD_DIR)/$(PROJECTNAME)/$(PROJECTNAME).elf
 
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(COMPILE) -c $< -o $@
 
 create_build_dir:
-	mkdir -p $(BUILD_DIR)/Room
+	mkdir -p $(BUILD_DIR)/$(PROJECTNAME)
 
 clean:
 	rm -rf $(BUILD_DIR)
