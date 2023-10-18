@@ -10,6 +10,7 @@ BUILD_DIR = build
 SOURCES = \
 	APP/main/main.c \
 	HAL/LED/LED.c \
+	HAL/BUZZER/BUZZER.c \
 	MCAL/ADC/ADC.c \
     MCAL/DIO/DIO.c \
 	MCAL/EEPROM/EEPROM.c \
