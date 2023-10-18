@@ -14,6 +14,7 @@ SOURCES = \
 	MCAL/EEPROM/EEPROM.c \
 	MCAL/I2C/I2C.c \
 	MCAL/SPI/SPI.c \
+	MCAL/TIMER/TIMER.c \
 	MCAL/UART/UART.c
 
 # Generate object file names
