@@ -167,16 +167,16 @@ void TIMER_clearCounter(TIMER_t timer){
 	}
 }
 
-void Timers_resume(TIMER_t timer, TIMER_PRESCALER prescaler){
+void TIMER_resume(TIMER_t timer, TIMER_PRESCALER prescaler){
 	switch(timer){
 	case TIMER_0 :
-		TCCR0 = (TCCR0&0xF8) | prescaler;
+		TCCR0 = (TCCR0 & 0xF8) | prescaler;
 		break;
 	case TIMER_1 :
-		TCCR1B = (TCCR1B&0xF8) | prescaler;
+		TCCR1B = (TCCR1B & 0xF8) | prescaler;
 		break;
 	case TIMER_2 :
-		TCCR2 = (TCCR2&0xF8) | prescaler;
+		TCCR2 = (TCCR2 & 0xF8) | prescaler;
 		break;
 	}
 }
