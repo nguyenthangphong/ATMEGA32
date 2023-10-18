@@ -1,9 +1,9 @@
 #ifndef SPI_H_
 #define SPI_H_
 
-#include "micro_config.h"
-#include "common_macros.h"
-#include "std_types.h"
+#include "../../UTLIS/micro_config.h"
+#include "../../UTLIS/common_macros.h"
+#include "../../UTLIS/std_types.h"
 
 #define SS              PB4
 #define MOSI            PB5

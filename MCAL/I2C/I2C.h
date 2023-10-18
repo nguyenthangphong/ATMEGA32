@@ -1,9 +1,9 @@
 #ifndef I2C_H_
 #define I2C_H_
 
-#include "std_types.h"
-#include "micro_config.h"
-#include "common_macros.h"
+#include "../../UTLIS/micro_config.h"
+#include "../../UTLIS/common_macros.h"
+#include "../../UTLIS/std_types.h"
 
 #define START 			0x08
 #define REP_START 		0x10

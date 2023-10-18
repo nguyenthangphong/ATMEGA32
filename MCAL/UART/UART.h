@@ -1,9 +1,9 @@
 #ifndef _UART_H_
 #define _UART_H_
 
-#include "std_types.h"
-#include "micro_config.h"
-#include "common_macros.h"
+#include "../../UTLIS/micro_config.h"
+#include "../../UTLIS/common_macros.h"
+#include "../../UTLIS/std_types.h"
 
 typedef enum { DISABLED, RESERVED, EVEN, ODD } UART_parity;
 typedef enum { ONE, TWO } UART_stopBits;

@@ -8,8 +8,12 @@ BUILD_DIR = build
 
 # Define the source files
 SOURCES = \
+	APP/main/main.c \
+	MCAL/ADC/ADC.c \
     MCAL/DIO/DIO.c \
+	MCAL/EEPROM/EEPROM.c \
 	MCAL/I2C/I2C.c \
+	MCAL/SPI/SPI.c \
 	MCAL/UART/UART.c
 
 # Generate object file names
