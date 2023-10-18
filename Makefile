@@ -9,8 +9,10 @@ BUILD_DIR = build
 # Define the source files
 SOURCES = \
 	APP/main/main.c \
-	HAL/LED/LED.c \
 	HAL/BUZZER/BUZZER.c \
+	HAL/KEYPAD/KEYPAD.c \
+	HAL/LCD/LCD.c \
+	HAL/LED/LED.c \
 	MCAL/ADC/ADC.c \
     MCAL/DIO/DIO.c \
 	MCAL/EEPROM/EEPROM.c \
