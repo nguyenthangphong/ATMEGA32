@@ -1,11 +1,11 @@
 #include "I2C.h"
 
 void I2C_init(const I2C_configType * I2C_Config_Ptr){
-	TWBR = I2C_Config_Ptr->bitRate;             // Set the bit rate
-	TWSR = I2C_Config_Ptr->prescaler;           // TWI Bit Rate Prescaler
-	TWAR = I2C_Config_Ptr->slaveModeAddress;    // Slave mode address
-	TWCR = (1 << TWEN);                         // Enable the module
-	PORTC |= (1 << PC0) | (1 << PC1);           // Activate internal pull up on
+	TWBR = I2C_Config_Ptr->bitRate;
+	TWSR = I2C_Config_Ptr->prescaler;
+	TWAR = I2C_Config_Ptr->slaveModeAddress;
+	TWCR = (1 << TWEN);
+	PORTC |= (1 << PC0) | (1 << PC1);
 }
 
 void I2C_start(void){
@@ -28,7 +28,7 @@ unsigned char I2C_receiveData(I2C_ACKorNACK ack){
         TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWEA);
         break;
 	}
-    while(BIT_IS_CLEAR(TWCR,TWINT));
+    while(BIT_IS_CLEAR(TWCR, TWINT));
     return TWDR;
 }
 
@@ -44,7 +44,6 @@ unsigned char I2C_MTR_Seq(unsigned char * data, unsigned char SLA, I2C_RW R_W){
 	unsigned char SLA_R = (SLA << 1) | (0x01);
 	unsigned char SLA_W = (SLA << 1) & (0xFE);
 
-	/* Start bit */
 	TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
 	while (!(TWCR & (1 << TWINT)));
 
@@ -52,7 +51,6 @@ unsigned char I2C_MTR_Seq(unsigned char * data, unsigned char SLA, I2C_RW R_W){
 	    return 1;
 	}
 
-	/* Send the address to the bus */
 	switch(R_W){
 	case READ:
 		TWDR = SLA_R;
@@ -78,7 +76,6 @@ unsigned char I2C_MTR_Seq(unsigned char * data, unsigned char SLA, I2C_RW R_W){
 		break;
 	}
 
-	/* Read - Write the data on the bus */
 	switch(R_W){
 	case READ:
 		*data = TWDR;

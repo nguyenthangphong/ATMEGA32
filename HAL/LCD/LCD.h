@@ -8,9 +8,9 @@
 
 #define	LCD_CTRL_PORT_DIR DDRB
 #define	LCD_CTRL_PORT PORTB
-#define RS PD0
-#define RW PD1
-#define EN PD2
+#define RS PB0
+#define RW PB1
+#define EN PB2
 
 #define LCD_DATA_PORT_DIR DDRA
 #define LCD_DATA_PORT PORTA
